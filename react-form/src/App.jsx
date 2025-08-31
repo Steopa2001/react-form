@@ -42,7 +42,7 @@ function App() {
   // Funzione per cancellare un articolo dato il suo id
   const handleDelete = (id) => {
     // Filtra la lista rimuovendo l'articolo con l'id passato
-    const updateArticles = articles.map((article) => article.id !== id);
+    const updateArticles = articles.filter((article) => article.id !== id);
     setArticles(updateArticles);
   };
 
@@ -52,7 +52,10 @@ function App() {
       <ul>
         {/* Cicliamo sugli articoli e mostriamo il titolo di ciascuno */}
         {articles.map((article) => (
-          <li key={article.id}>{article.title}</li>
+          <li key={article.id}>{article.title}
+          {/* Pulsante per cancellare l'articolo */}
+          <button className="btn-delete" onClick={() => handleDelete(article.id)}>X</button>
+          </li>
         ))}
       </ul>
 
