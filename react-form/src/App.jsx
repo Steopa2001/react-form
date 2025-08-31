@@ -47,14 +47,14 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="container">
       <h1>Lista Articoli</h1>
       <ul>
         {/* Cicliamo sugli articoli e mostriamo il titolo di ciascuno */}
         {articles.map((article) => (
           <li key={article.id}>{article.title}
           {/* Pulsante per cancellare l'articolo */}
-          <button className="btn-delete" onClick={() => handleDelete(article.id)}>X</button>
+          <button className="btn btn-danger mx-2" onClick={() => handleDelete(article.id)}>X</button>
           </li>
         ))}
       </ul>
