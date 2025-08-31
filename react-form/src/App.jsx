@@ -21,34 +21,47 @@ function App() {
   const [articles, setArticles] = useState(initialArticles);
 
   // Stato per gestire il valore del campo input per il nuovo articolo
-  const [newTitle, setNewTtitle] = useState("");
+  const [newTitle, setNewTitle] = useState("");
 
   // Funzione chiamata al submit del form
   const handleSubmit = (e) => {
     // Previene il comportamento di default del form che ricarica la pagina
     e.preventDefault();
+    // Creiamo un nuovo oggetto articolo con id incrementale e titolo preso dall'input
+    const newArticle = {
+      id: articles.length + 1,
+      title: newTitle,
+    };
+    // Aggiorniamo lo stato articles aggiungendo il nuovo articolo
+    setArticles([...articles, newArticle]);
+
+    // Resettiamo il campo input dopo aver aggiunto l'articolo
+    setNewTitle("");
   };
-
-  // Creiamo un nuovo oggetto articolo con id incrementale e titolo preso dall'input
-  const newArticle = {
-    id: articles.length + 1,
-    title: newTitle,
-  };
-
-  // Aggiorniamo lo stato articles aggiungendo il nuovo articolo
-  setArticles([...articles, newArticle]);
-
-  // Resettiamo il campo input dopo aver aggiunto l'articolo
-  setNewTtitle("");
 
   return (
     <div>
       <h1>Lista Articoli</h1>
       <ul>
+        {/* Cicliamo sugli articoli e mostriamo il titolo di ciascuno */}
         {articles.map((article) => (
           <li key={article.id}>{article.title}</li>
         ))}
       </ul>
+
+      <h2>Aggiungo il nuovo articolo:</h2>
+
+      <form onSubmit={handleSubmit}>
+        {/* Campo input controllato dal stato newTitle */}
+        <input
+          type="text"
+          value={newTitle}
+          onChange={(e) => setNewTitle(e.target.value)}
+          placeholder="Titolo articolo"
+        />
+        {/* Pulsante per inviare il form */}
+        <button type="submit">Aggiungi</button>
+      </form>
     </div>
   );
 }
