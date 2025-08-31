@@ -27,6 +27,12 @@ function App() {
     e.preventDefault();
    }
 
+     // Creiamo un nuovo oggetto articolo con id incrementale e titolo preso dall'input
+     const newArticle = {
+      id: articles.length + 1,
+      title: newTitle
+     }
+
   return (
     <div>
       <h1>Lista Articoli</h1>
