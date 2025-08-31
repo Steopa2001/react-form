@@ -21,6 +21,12 @@ function App() {
   // Stato per gestire il valore del campo input per il nuovo articolo
   const [newTitle, setNewTtitle] = useState('');
 
+   // Funzione chiamata al submit del form
+   const handleSubmit = (e) => {
+    // Previene il comportamento di default del form che ricarica la pagina
+    e.preventDefault();
+   }
+
   return (
     <div>
       <h1>Lista Articoli</h1>
