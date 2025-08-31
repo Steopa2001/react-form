@@ -39,6 +39,13 @@ function App() {
     setNewTitle("");
   };
 
+  // Funzione per cancellare un articolo dato il suo id
+  const handleDelete = (id) => {
+    // Filtra la lista rimuovendo l'articolo con l'id passato
+    const updateArticles = articles.map((article) => article.id !== id);
+    setArticles(updateArticles);
+  };
+
   return (
     <div>
       <h1>Lista Articoli</h1>
