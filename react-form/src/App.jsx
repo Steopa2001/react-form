@@ -15,7 +15,11 @@ const initialArticles = [
 
 function App() {
 
-  const [articles, setArticles] = useState(initialArticles)
+  // Stato per gestire la lista degli articoli, inizializzato con initialArticles
+  const [articles, setArticles] = useState(initialArticles);
+
+  // Stato per gestire il valore del campo input per il nuovo articolo
+  const [newTitle, setNewTtitle] = useState('');
 
   return (
     <div>
@@ -30,4 +34,4 @@ function App() {
 
 }
 
-export default App
+export default App;
