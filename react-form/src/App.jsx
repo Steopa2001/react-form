@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 //Lista articoli 
-const articles = [
+const initialArticles = [
   {
     id: 1, title:'Primo Articolo'
   },
@@ -15,6 +15,18 @@ const articles = [
 
 function App() {
 
+  const [articles, setArticles] = useState(initialArticles)
+
+  return (
+    <div>
+      <h1>Lista Articoli</h1>
+      <ul>
+        {articles.map((article) => (
+          <li key={article.id}>{article.title}</li>
+        ))}
+      </ul>
+    </div>
+  )
 
 }
 
