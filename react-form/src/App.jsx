@@ -29,7 +29,7 @@ function App() {
     e.preventDefault();
     // Creiamo un nuovo oggetto articolo con id incrementale e titolo preso dall'input
     const newArticle = {
-      id: articles.length + 1,
+      id: articles[articles.length - 1].id + 1,
       title: newTitle,
     };
     // Aggiorniamo lo stato articles aggiungendo il nuovo articolo
